@@ -277,20 +277,22 @@ export const MemoryGallery = ({ title, subheading, memories = [], footerText, fo
             transition={{ duration: 0.3 }}
             onTouchStart={handleTouchStartLightbox}
             onTouchEnd={handleTouchEndLightbox}
-            className="fixed inset-0 z-50 bg-black/75 backdrop-blur-sm flex flex-col items-center justify-between p-4 sm:p-6"
+            className="fixed inset-0 z-[60] bg-black/80 backdrop-blur-sm flex flex-col items-center justify-between p-4 sm:p-6"
           >
-            {/* Top Bar: Counter & Close Button */}
+            {/* Top Bar: Counter, Close Button & Next Page Button */}
             <div className="w-full max-w-4xl flex items-center justify-between z-10 pt-2">
-              <span className="text-white/90 font-sans font-semibold text-xs sm:text-sm px-3 py-1 bg-white/20 rounded-full border border-white/30 backdrop-blur-md">
+              <span className="text-white/90 font-sans font-semibold text-xs sm:text-sm px-3.5 py-1.5 bg-white/20 rounded-full border border-white/30 backdrop-blur-md shadow-sm">
                 {selectedIndex + 1} / {memories.length}
               </span>
 
+              {/* Close Button with mr-16 on mobile so it never collides with Music Player */}
               <button
                 onClick={() => setSelectedIndex(null)}
-                className="p-2 text-white/90 hover:text-white bg-white/20 hover:bg-white/30 rounded-full transition-all border border-white/30 cursor-pointer backdrop-blur-md"
+                className="p-2 text-white bg-white/20 hover:bg-white/30 rounded-full transition-all border border-white/30 cursor-pointer backdrop-blur-md mr-16 sm:mr-0 shadow-md flex items-center gap-1 px-3"
                 aria-label="Close photo"
               >
-                <X className="w-6 h-6" />
+                <X className="w-5 h-5" />
+                <span className="text-xs font-semibold hidden sm:inline">Close</span>
               </button>
             </div>
 
@@ -299,7 +301,7 @@ export const MemoryGallery = ({ title, subheading, memories = [], footerText, fo
               {/* Previous Button */}
               <button
                 onClick={() => setSelectedIndex((prev) => (prev - 1 + memories.length) % memories.length)}
-                className="absolute left-2 sm:left-4 z-20 p-2.5 sm:p-3 text-white bg-black/50 hover:bg-black/75 rounded-full transition-all backdrop-blur-md border border-white/20 cursor-pointer"
+                className="absolute left-2 sm:left-4 z-20 p-2.5 sm:p-3 text-white bg-black/50 hover:bg-black/75 rounded-full transition-all backdrop-blur-md border border-white/20 cursor-pointer shadow-lg"
                 aria-label="Previous photo"
               >
                 <ChevronLeft className="w-6 h-6 sm:w-7 sm:h-7" />
@@ -313,12 +315,12 @@ export const MemoryGallery = ({ title, subheading, memories = [], footerText, fo
                   animate={{ scale: 1, opacity: 1 }}
                   exit={{ scale: 0.85, opacity: 0 }}
                   transition={{ duration: 0.3 }}
-                  className="max-h-[72vh] max-w-[88vw] sm:max-w-[80vw] flex flex-col items-center justify-center p-3 bg-stone-900/85 backdrop-blur-md rounded-2xl border border-white/20 shadow-2xl"
+                  className="max-h-[70vh] max-w-[88vw] sm:max-w-[80vw] flex flex-col items-center justify-center p-3 bg-stone-900/85 backdrop-blur-md rounded-2xl border border-white/20 shadow-2xl"
                 >
                   <img
                     src={memories[selectedIndex]?.image}
                     alt={memories[selectedIndex]?.caption || `Photo ${selectedIndex + 1}`}
-                    className="max-h-[62vh] max-w-full object-contain rounded-xl shadow-lg"
+                    className="max-h-[58vh] max-w-full object-contain rounded-xl shadow-lg"
                   />
                   {memories[selectedIndex]?.caption && (
                     <p className="mt-3 text-white font-handwriting text-2xl sm:text-3xl text-center px-4">
@@ -331,17 +333,32 @@ export const MemoryGallery = ({ title, subheading, memories = [], footerText, fo
               {/* Next Button */}
               <button
                 onClick={() => setSelectedIndex((prev) => (prev + 1) % memories.length)}
-                className="absolute right-2 sm:right-4 z-20 p-2.5 sm:p-3 text-white bg-black/50 hover:bg-black/75 rounded-full transition-all backdrop-blur-md border border-white/20 cursor-pointer"
+                className="absolute right-2 sm:right-4 z-20 p-2.5 sm:p-3 text-white bg-black/50 hover:bg-black/75 rounded-full transition-all backdrop-blur-md border border-white/20 cursor-pointer shadow-lg"
                 aria-label="Next photo"
               >
                 <ChevronRight className="w-6 h-6 sm:w-7 sm:h-7" />
               </button>
             </div>
 
-            {/* Bottom Tip */}
-            <p className="text-white/70 text-xs font-sans pb-2">
-              Swipe left or right to view more memories
-            </p>
+            {/* Bottom Controls Bar: Swipe Tip & Direct Next Screen Option */}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 w-full pb-2 z-10">
+              <p className="text-white/70 text-xs font-sans">
+                Swipe left or right to view more memories
+              </p>
+              
+              {onNext && (
+                <button
+                  onClick={() => {
+                    setSelectedIndex(null);
+                    onNext();
+                  }}
+                  className="py-2 px-5 bg-gradient-to-r from-rose-500 via-rose-600 to-pink-600 text-white text-xs sm:text-sm font-bold rounded-full shadow-lg hover:shadow-rose-400/40 border border-rose-300 flex items-center gap-1.5 cursor-pointer hover:scale-105 transition-transform"
+                >
+                  <span>Go to Next Page</span>
+                  <span>→</span>
+                </button>
+              )}
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
