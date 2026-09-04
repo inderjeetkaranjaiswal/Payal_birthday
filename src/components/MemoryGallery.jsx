@@ -340,33 +340,28 @@ export const MemoryGallery = ({ title, subheading, memories = [], footerText, fo
               </button>
             </div>
 
-            {/* Bottom Navigation Options: Close & Next Page Buttons */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 w-full pb-3 z-10">
-              <div className="flex items-center gap-3">
+            {/* Bottom Navigation Options (Matching Attached Screenshot) */}
+            <div className="flex items-center justify-center gap-3 w-full pb-4 z-20">
+              <button
+                onClick={() => setSelectedIndex((prev) => (prev + 1) % memories.length)}
+                className="py-2.5 px-5 sm:px-6 bg-[#262626]/90 hover:bg-[#333333] text-white font-medium text-xs sm:text-sm rounded-full border border-white/20 backdrop-blur-md transition-all cursor-pointer flex items-center gap-1.5 shadow-lg"
+              >
+                <span>Next Photo</span>
+                <span>→</span>
+              </button>
+
+              {onNext && (
                 <button
-                  onClick={() => setSelectedIndex(null)}
-                  className="py-2.5 px-6 bg-white/20 hover:bg-white/30 text-white text-xs sm:text-sm font-bold rounded-full border border-white/30 backdrop-blur-md transition-all cursor-pointer"
+                  onClick={() => {
+                    setSelectedIndex(null);
+                    onNext();
+                  }}
+                  className="py-2.5 px-6 sm:px-7 bg-[#f2c4ce] hover:bg-[#ea9ab0] text-[#4a2e35] font-bold text-xs sm:text-sm rounded-full shadow-lg border border-rose-300/60 flex items-center gap-1.5 cursor-pointer hover:scale-105 transition-transform"
                 >
-                  Close Photo ✖
+                  <span>Next Page →</span>
+                  <span>→</span>
                 </button>
-
-                {onNext && (
-                  <button
-                    onClick={() => {
-                      setSelectedIndex(null);
-                      onNext();
-                    }}
-                    className="py-2.5 px-7 bg-gradient-to-r from-rose-500 via-rose-600 to-pink-600 text-white text-xs sm:text-sm font-bold rounded-full shadow-lg hover:shadow-rose-400/40 border border-rose-300 flex items-center gap-2 cursor-pointer hover:scale-105 transition-transform"
-                  >
-                    <span>Next Page</span>
-                    <span>→</span>
-                  </button>
-                )}
-              </div>
-
-              <p className="text-white/60 text-[11px] font-sans">
-                Swipe left or right to view more memories
-              </p>
+              )}
             </div>
           </motion.div>
         )}

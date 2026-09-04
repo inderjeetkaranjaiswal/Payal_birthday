@@ -55,29 +55,28 @@ export const MusicPlayer = ({ audioPath = "/music/birthday.mp3" }) => {
   };
 
   return (
-    <div className="fixed bottom-4 right-4 z-40">
+    <div className="fixed top-4 right-4 z-40">
       <audio ref={audioRef} src={audioPath} loop preload="auto" />
 
       <motion.button
         onClick={toggleMusic}
-        whileHover={{ scale: 1.1 }}
+        whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         title={hasError ? 'Music unavailable' : isPlaying ? 'Turn Music OFF' : 'Turn Music ON 🎂'}
-        className={`flex items-center gap-2 px-3 py-2 rounded-full shadow-lg backdrop-blur-md transition-all border cursor-pointer ${
+        className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-full shadow-md backdrop-blur-md transition-all border cursor-pointer ${
           isPlaying
-            ? 'bg-rose-500/90 text-white border-rose-300 wine-glow'
-            : 'bg-white/80 text-rose-900 border-rose-200 hover:bg-rose-50'
+            ? 'bg-white/30 text-white border-white/40'
+            : 'bg-white/30 text-white/80 border-white/30 hover:bg-white/40'
         } ${hasError ? 'opacity-50 cursor-not-allowed' : ''}`}
       >
-        <span className={`text-lg ${isPlaying ? 'animate-bounce' : ''}`}>🎵</span>
-        <span className="text-xs font-semibold uppercase tracking-wider hidden sm:inline">
-          {isPlaying ? 'Music ON' : 'Music OFF'}
-        </span>
         {isPlaying ? (
-          <Volume2 className="w-4 h-4 animate-pulse text-white" />
+          <Volume2 className="w-4 h-4 text-white" />
         ) : (
-          <VolumeX className="w-4 h-4 text-rose-700 opacity-70" />
+          <VolumeX className="w-4 h-4 text-white/70" />
         )}
+        <span className="text-xs font-serif italic text-white">
+          {isPlaying ? 'Music' : 'Music'}
+        </span>
       </motion.button>
     </div>
   );
