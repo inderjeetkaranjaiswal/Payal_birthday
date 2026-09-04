@@ -55,7 +55,7 @@ export const MusicPlayer = ({ audioPath = "/music/birthday.mp3" }) => {
   };
 
   return (
-    <div className="fixed top-4 right-4 z-40">
+    <div className="fixed bottom-4 right-4 z-40">
       <audio ref={audioRef} src={audioPath} loop preload="auto" />
 
       <motion.button
