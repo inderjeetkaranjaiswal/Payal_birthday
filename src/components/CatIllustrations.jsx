@@ -221,3 +221,185 @@ export const PartyCat = ({ className = "w-56 h-56" }) => (
     </svg>
   </motion.div>
 );
+
+// STICKER 1: Celebrating Cats with Party Hat, Cake, and "i love you" Speech Bubble (Matching Screenshot 2)
+export const StickerCatsCelebrating = ({ className = "w-52 h-52" }) => (
+  <motion.div
+    className={`relative flex items-center justify-center ${className}`}
+    whileHover={{ scale: 1.05 }}
+  >
+    <svg viewBox="0 0 240 220" className="w-full h-full drop-shadow-lg">
+      <defs>
+        <filter id="stickerShadow" x="-10%" y="-10%" width="120%" height="120%">
+          <feDropShadow dx="0" dy="4" stdDeviation="4" floodColor="#f472b6" floodOpacity="0.3" />
+        </filter>
+      </defs>
+
+      {/* "i love you" Speech Bubble */}
+      <g filter="url(#stickerShadow)">
+        <rect x="110" y="15" width="115" height="42" rx="20" fill="#ee9ba8" />
+        <path d="M 140 57 L 130 68 L 152 57 Z" fill="#ee9ba8" />
+        <text
+          x="167"
+          y="41"
+          fontFamily="'Dancing Script', 'Caveat', cursive"
+          fontSize="22"
+          fontWeight="bold"
+          fill="#ffffff"
+          textAnchor="middle"
+        >
+          i love you
+        </text>
+      </g>
+
+      {/* Grey/Brown Cat with Party Hat */}
+      <g>
+        {/* Body */}
+        <ellipse cx="80" cy="155" rx="35" ry="30" fill="#8c8282" />
+        {/* Head */}
+        <ellipse cx="75" cy="120" rx="38" ry="32" fill="#8c8282" />
+        {/* Ears */}
+        <polygon points="45,95 55,68 70,95" fill="#8c8282" />
+        <polygon points="50,93 55,75 65,93" fill="#ffb4c2" />
+        <polygon points="85,95 98,68 110,95" fill="#8c8282" />
+        <polygon points="88,93 98,75 105,93" fill="#ffb4c2" />
+        {/* Party Hat */}
+        <polygon points="75,35 55,80 95,80" fill="#a4d8ec" />
+        <path d="M 58 70 L 92 70" stroke="#f472b6" strokeWidth="4" />
+        <path d="M 64 55 L 86 55" stroke="#fde047" strokeWidth="4" />
+        <circle cx="75" cy="32" r="7" fill="#eab308" />
+        {/* Eyes & Mouth */}
+        <circle cx="62" cy="122" r="4.5" fill="#2d2626" />
+        <circle cx="88" cy="122" r="4.5" fill="#2d2626" />
+        <ellipse cx="53" cy="128" rx="6" ry="4" fill="#ff758c" opacity="0.6" />
+        <ellipse cx="97" cy="128" rx="6" ry="4" fill="#ff758c" opacity="0.6" />
+        <path d="M 70 126 Q 75 132 80 126" stroke="#2d2626" strokeWidth="2.5" fill="none" strokeLinecap="round" />
+      </g>
+
+      {/* White Cat */}
+      <g>
+        {/* Body */}
+        <ellipse cx="170" cy="155" rx="36" ry="30" fill="#ffffff" stroke="#e2d8d8" strokeWidth="1.5" />
+        {/* Head */}
+        <ellipse cx="170" cy="120" rx="38" ry="32" fill="#ffffff" stroke="#e2d8d8" strokeWidth="1.5" />
+        {/* Ears */}
+        <polygon points="140,95 150,68 165,95" fill="#ffffff" stroke="#e2d8d8" strokeWidth="1" />
+        <polygon points="145,93 150,75 160,93" fill="#ffb4c2" />
+        <polygon points="180,95 192,68 202,95" fill="#ffffff" stroke="#e2d8d8" strokeWidth="1" />
+        <polygon points="184,93 192,75 198,93" fill="#ffb4c2" />
+        {/* Eyes & Mouth */}
+        <circle cx="157" cy="122" r="4.5" fill="#2d2626" />
+        <circle cx="183" cy="122" r="4.5" fill="#2d2626" />
+        <ellipse cx="148" cy="128" rx="6" ry="4" fill="#ff758c" opacity="0.6" />
+        <ellipse cx="192" cy="128" rx="6" ry="4" fill="#ff758c" opacity="0.6" />
+        <path d="M 165 127 Q 170 133 175 127" stroke="#2d2626" strokeWidth="2.5" fill="none" strokeLinecap="round" />
+      </g>
+
+      {/* Birthday Cake in front */}
+      <g>
+        <ellipse cx="120" cy="195" rx="42" ry="10" fill="#e5e7eb" />
+        <rect x="90" y="165" width="60" height="28" rx="6" fill="#fbcfe8" stroke="#f472b6" strokeWidth="1.5" />
+        <path d="M 90 174 Q 100 182 110 174 Q 120 182 130 174 Q 140 182 150 174 L 150 165 L 90 165 Z" fill="#ffffff" />
+        <rect x="117" y="150" width="6" height="15" rx="1" fill="#93c5fd" />
+        <ellipse cx="120" cy="147" rx="3.5" ry="6" fill="#fde047" />
+        <ellipse cx="120" cy="148" rx="2" ry="3.5" fill="#ef4444" />
+      </g>
+    </svg>
+  </motion.div>
+);
+
+// STICKER 2: 3 Stacked Cute Bears (Top White Bear with Heart Bubble 💕, Panda Middle, Brown Bear Bottom) (Matching Screenshot 3)
+export const StickerStackedBears = ({ className = "w-48 h-72" }) => (
+  <motion.div
+    className={`relative flex flex-col items-center justify-center ${className}`}
+    whileHover={{ scale: 1.05 }}
+  >
+    <svg viewBox="0 0 200 320" className="w-full h-full drop-shadow-md">
+      {/* Heart Speech Bubble on top */}
+      <g>
+        <circle cx="100" cy="30" r="22" fill="#ffffff" stroke="#d1d5db" strokeWidth="1.5" />
+        <path d="M 95 48 L 92 56 L 102 50 Z" fill="#ffffff" stroke="#d1d5db" strokeWidth="1" />
+        <path
+          d="M 100 24 C 95 18 86 24 100 34 C 114 24 105 18 100 24 Z"
+          fill="#f43f5e"
+        />
+      </g>
+
+      {/* TOP BEAR: Cute White Bear */}
+      <g>
+        <ellipse cx="100" cy="100" rx="42" ry="32" fill="#ffffff" stroke="#e5e7eb" strokeWidth="1.5" />
+        <circle cx="68" cy="78" r="10" fill="#ffffff" stroke="#e5e7eb" strokeWidth="1.5" />
+        <circle cx="68" cy="78" r="6" fill="#fce7f3" />
+        <circle cx="132" cy="78" r="10" fill="#ffffff" stroke="#e5e7eb" strokeWidth="1.5" />
+        <circle cx="132" cy="78" r="6" fill="#fce7f3" />
+        <circle cx="82" cy="98" r="4.5" fill="#2d2626" />
+        <circle cx="118" cy="98" r="4.5" fill="#2d2626" />
+        <ellipse cx="72" cy="104" rx="7" ry="4" fill="#fda4af" opacity="0.6" />
+        <ellipse cx="128" cy="104" rx="7" ry="4" fill="#fda4af" opacity="0.6" />
+        <ellipse cx="100" cy="105" rx="5" ry="3.5" fill="#2d2626" />
+        <path d="M 96 110 Q 100 114 104 110" stroke="#2d2626" strokeWidth="2" fill="none" />
+        {/* Paws resting on panda */}
+        <ellipse cx="75" cy="124" rx="9" ry="6" fill="#ffffff" stroke="#e5e7eb" strokeWidth="1.5" />
+        <ellipse cx="125" cy="124" rx="9" ry="6" fill="#ffffff" stroke="#e5e7eb" strokeWidth="1.5" />
+      </g>
+
+      {/* MIDDLE BEAR: Panda Bear */}
+      <g>
+        <ellipse cx="100" cy="180" rx="52" ry="38" fill="#ffffff" stroke="#e5e7eb" strokeWidth="1.5" />
+        {/* Black Panda Ears */}
+        <circle cx="58" cy="152" r="12" fill="#374151" />
+        <circle cx="142" cy="152" r="12" fill="#374151" />
+        {/* Black Eye Patches */}
+        <ellipse cx="78" cy="178" rx="10" ry="12" fill="#374151" rotate="-15" />
+        <ellipse cx="122" cy="178" rx="10" ry="12" fill="#374151" rotate="15" />
+        <circle cx="78" cy="176" r="3.5" fill="#ffffff" />
+        <circle cx="122" cy="176" r="3.5" fill="#ffffff" />
+        <ellipse cx="68" cy="184" rx="7" ry="4" fill="#fda4af" opacity="0.6" />
+        <ellipse cx="132" cy="184" rx="7" ry="4" fill="#fda4af" opacity="0.6" />
+        <ellipse cx="100" cy="184" rx="5" ry="3.5" fill="#2d2626" />
+        <path d="M 96 188 Q 100 192 104 188" stroke="#2d2626" strokeWidth="2" fill="none" />
+        {/* Paws */}
+        <ellipse cx="70" cy="208" rx="11" ry="7" fill="#ffffff" stroke="#e5e7eb" strokeWidth="1.5" />
+        <ellipse cx="130" cy="208" rx="11" ry="7" fill="#ffffff" stroke="#e5e7eb" strokeWidth="1.5" />
+      </g>
+
+      {/* BOTTOM BEAR: Brown Bear */}
+      <g>
+        <ellipse cx="100" cy="265" rx="60" ry="45" fill="#c08457" />
+        {/* Ears */}
+        <circle cx="52" cy="232" r="14" fill="#c08457" />
+        <circle cx="52" cy="232" r="8" fill="#8c5836" />
+        <circle cx="148" cy="232" r="14" fill="#c08457" />
+        <circle cx="148" cy="232" r="8" fill="#8c5836" />
+        {/* Eyes & Snout */}
+        <circle cx="74" cy="262" r="5" fill="#2d2626" />
+        <circle cx="126" cy="262" r="5" fill="#2d2626" />
+        <ellipse cx="62" cy="268" rx="8" ry="5" fill="#fb7185" opacity="0.6" />
+        <ellipse cx="138" cy="268" rx="8" ry="5" fill="#fb7185" opacity="0.6" />
+        <ellipse cx="100" cy="268" rx="16" ry="12" fill="#edd6c4" />
+        <ellipse cx="100" cy="264" rx="5" ry="3.5" fill="#2d2626" />
+        <path d="M 95 270 Q 100 275 105 270" stroke="#2d2626" strokeWidth="2" fill="none" />
+        {/* Paws */}
+        <ellipse cx="60" cy="298" rx="16" ry="10" fill="#c08457" />
+        <ellipse cx="140" cy="298" rx="16" ry="10" fill="#c08457" />
+      </g>
+    </svg>
+  </motion.div>
+);
+
+// STICKER 3: Ultra Clear Bubu & Dudu Bear Hug Sticker (Matching attached screenshot)
+export const StickerBearHug = ({ className = "w-64 h-64" }) => (
+  <motion.div
+    className={`relative flex items-center justify-center ${className}`}
+    animate={{ scale: [1, 1.04, 1] }}
+    transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+  >
+    <div className="relative p-3 bg-white/95 backdrop-blur-md rounded-3xl shadow-2xl border-2 border-rose-200/80 max-w-sm flex items-center justify-center pink-glow">
+      <img
+        src="/images/bear_hug_sticker.png"
+        alt="Clear Bear Hug Sticker"
+        className="w-full h-full object-contain rounded-2xl drop-shadow-lg"
+      />
+    </div>
+  </motion.div>
+);

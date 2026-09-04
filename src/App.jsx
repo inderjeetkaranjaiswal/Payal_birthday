@@ -10,6 +10,7 @@ import { GiftBox } from './components/GiftBox';
 import { BalloonsSection } from './components/BalloonsSection';
 import { CakeWishSection } from './components/CakeWishSection';
 import { RoseBouquetSection } from './components/RoseBouquetSection';
+import { VirtualHug } from './components/VirtualHug';
 
 export default function App() {
   // Screen state: WELCOME -> NO_REACTION -> YES_REACTION -> BIRTHDAY -> LETTER -> MEMORIES -> SURPRISE -> BALLOONS -> CAKE_WISH -> ROSE_BOUQUET
@@ -279,7 +280,7 @@ export default function App() {
             </motion.div>
           )}
 
-          {/* SCREEN 10: ROSE BOUQUET (FINAL PAGE) */}
+          {/* SCREEN 10: ROSE BOUQUET */}
           {currentScreen === 'ROSE_BOUQUET' && (
             <motion.div
               key="rose_bouquet"
@@ -290,7 +291,22 @@ export default function App() {
               transition={transitionConfig}
               className="w-full"
             >
-              <RoseBouquetSection onReplay={() => setCurrentScreen('WELCOME')} />
+              <RoseBouquetSection onNext={() => setCurrentScreen('VIRTUAL_HUG')} />
+            </motion.div>
+          )}
+
+          {/* SCREEN 11: VIRTUAL HUG (FINAL SURPRISE PAGE) */}
+          {currentScreen === 'VIRTUAL_HUG' && (
+            <motion.div
+              key="virtual_hug"
+              variants={pageVariants}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              transition={transitionConfig}
+              className="w-full"
+            >
+              <VirtualHug onReplay={() => setCurrentScreen('WELCOME')} />
             </motion.div>
           )}
 
@@ -299,7 +315,7 @@ export default function App() {
 
       {/* Footer Branding */}
       <footer className="relative z-20 text-center py-4 text-xs font-sans text-rose-800/60">
-        Crafted with love for Harsha's Birthday ✨
+        Crafted with love for Payal's Birthday ✨
       </footer>
     </main>
   );

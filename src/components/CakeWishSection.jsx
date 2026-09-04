@@ -30,7 +30,7 @@ export const CakeWishSection = ({ onNext }) => {
         animate={{ opacity: 1, y: 0 }}
         className="text-3xl sm:text-4xl md:text-5xl font-heading text-rose-900 font-bold mb-3 tracking-wide"
       >
-        Blow the candle, Harsha 🕯️
+        Blow the candle, Payal 🕯️
       </motion.h2>
 
       {/* Center Cake & Candle Container */}
@@ -120,7 +120,7 @@ export const CakeWishSection = ({ onNext }) => {
                 animate={{ opacity: 1, scale: 1 }}
                 className="mt-3 text-rose-900 font-handwriting text-3xl font-bold"
               >
-                Wish Made! ✨ May all your dreams come true 💗
+                Wish Made! ✨ Your wish has been sent to the stars 🌟
               </motion.div>
             </AnimatePresence>
           )}
